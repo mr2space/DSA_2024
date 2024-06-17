@@ -65,25 +65,24 @@ class heap{
     }
 };
 
-
-void heapify(int arr[],int n, int i ){
-    int left = i * 2;
-    int largest = i;
-    int right = i * 2 + 1;
-
-    if (left < n && arr[left] > arr[i]){
-        largest = left;
-    }else if (right < n && arr[right] > arr[i]){
-        largest = right;
-    }else{
-
+ void heapify(int *arr[],int n, int i ){
+        int left = i * 2+1;
+        int largest = i;
+        int right = i * 2 + 2;
+    
+        if (left < n && arr[left] > arr[largest])
+            largest = left;
+        if (right < n && arr[right] > arr[largest]){
+            largest = right;
+        }else{
+    
+        }
+    
+        if (largest != i){
+            swap(arr[i], arr[largest]);
+            heapify(arr, n, largest);
+        }
     }
-
-    if (largest != i){
-        swap(arr[i], arr[largest]);
-        heapify(arr, n, largest);
-    }
-}
 
 
 
@@ -100,9 +99,9 @@ int main(){
 
     int arr[6] = {-1, 54, 55, 53, 52, 50};
     int n = 5;
-    for(int i = n/2; i > 0; i--){
-        heapify(arr, n, i);
-    }
+        for(int i = n/2-1; i >= 0; i--){
+            heapify(arr, n, i);
+        }
     cout << "prrinting the array" << endl;
 
     int idx = 1;
