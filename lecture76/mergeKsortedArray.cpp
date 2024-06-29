@@ -1,6 +1,6 @@
-#include<iostream>
-#include<queue>
-using namespace std;
+#include <bits/stdc++.h> 
+
+
 
 class node{
     public:
@@ -18,25 +18,27 @@ class compare{
     bool operator()(node*a, node*b){
         return a->data > b->data;
     }
-}
+};
 
 
-
-vector<int> mergeKsortedArrays(vector<vector<int>> &kArray, int k){
+vector<int> mergeKSortedArrays(vector<vector<int>>&kArray, int k)
+{
     priority_queue<node*, vector<node*>, compare> pq;
     vector<int> ans;
     for(int i=0; i < k; i++){
-        node temp = new node(kArray[i][0], i, 0);
+        node* temp = new node(kArray[i][0], i, 0);
         pq.push(temp);
     }
+
     while(pq.size()>0){
         node * temp = pq.top();
         pq.pop();
         ans.push_back(temp->data);
-        if (temp.j < kArray[temp->i].size()){
-            temp = new node(kArray[temp.i][temp.j+1], temp.i, temp.j +1);
+        if (temp->j+1 < kArray[temp->i].size()){
+            temp = new node(kArray[temp->i][temp->j+1], temp->i, temp->j +1);
             pq.push(temp);
         }
     }
+
     return ans;
 }
