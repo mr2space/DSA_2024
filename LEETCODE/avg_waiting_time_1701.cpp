@@ -25,12 +25,7 @@ public:
                 startTime = customer[0];
             }
             startTime += customer[1];
-            avg +=  wait + customer[1];
-
-
-
-
-            
+            avg +=  wait + customer[1];           
         }
 
         return avg/customers.size() ;
