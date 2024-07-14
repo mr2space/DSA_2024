@@ -2,13 +2,8 @@
 using namespace std;
 
 int main(){
-    std::string t = "Banana Republic";
-    std::string s = "nana R";
-
-    std::string::size_type i = t.find(s);
-
-    if (i != std::string::npos)
-    t.erase(i, s.length());
-    cout << t << endl;
+    string a = "K4(ON(SO3)2)2";
+    cout << a.substr(1,1) << endl;
+    cout << a << endl;
     return 0;
 }
