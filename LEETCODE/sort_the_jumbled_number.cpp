@@ -11,7 +11,7 @@ public:
         if (n==0) return mapping[n];
         while(n>0){
             int ele = n % 10;
-            result += ten * mapping(ele);
+            result += ten * mapping[ele];
             n = n / 10;
             ten = ten * 10;
         }
@@ -20,7 +20,7 @@ public:
     vector<int> sortJumbled(vector<int>& mapping, vector<int>& nums) {
         map<int, vector<int>>mp;
         for(auto n:nums){
-            map[changeNum(n)].push_back(n);
+            mp[changeNum(n, mapping)].push_back(n);
         }
         vector<int> ans;
         for(auto ele:mp){
