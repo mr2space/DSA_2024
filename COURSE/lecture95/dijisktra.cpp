@@ -21,7 +21,7 @@ vector<int> dijkstra(vector<vector<int>> &vec, int vertices, int edges, int sour
     set<pair<int,int>> s;
     vector<int>distance(vertices, INT_MAX);
     distance[source] = 0;
-    s.insert(make_pair(0,0));
+    s.insert(make_pair(0,source));
 
     while (!s.empty()){
         pair<int, int>top = *(s.begin());

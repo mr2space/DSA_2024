@@ -17,6 +17,7 @@ class Solution
                     take = 1 + dp[curr+1][curr+1];
                 }
                 int nottake = 0 + dp[curr+1][prev+1];
+
                 dp[curr][prev+1] = max(take, nottake);
             }
         }
